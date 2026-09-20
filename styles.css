@@ -61,3 +61,156 @@ img,video{display:block;max-width:100%}a{color:inherit;text-decoration:none}butt
 }
 @media(max-width:430px){.brand strong{font-size:1.15rem}.pill{padding:9px 12px}.hero h1{font-size:clamp(3.25rem,14.8vw,5rem)}.u-copy .btn,.chapter .btn{max-width:100%;font-size:.52rem;padding-inline:14px}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.thread,.light-leak{display:none}.hero{height:auto}.hero-pin,.cinema-pin{position:relative;height:auto;min-height:100vh}.hero-line>span,.hero-sub,.hero-actions{transform:none!important;opacity:1!important;filter:none!important}}
+
+
+/* =========================================================
+   TEMPLATE 04 — FILM SEQUENCE
+   ========================================================= */
+:root{
+  --film-black:#090507;
+  --film-cherry:#2a0d16;
+  --film-ivory:#efe7de;
+  --film-gold:#d7b67d;
+}
+body{background:var(--film-black)}
+.nav{background:linear-gradient(180deg,rgba(9,5,7,.94),rgba(9,5,7,.18))}
+.nav.scrolled{background:rgba(9,5,7,.84)}
+.letterbox{position:fixed;inset:0;z-index:165;pointer-events:none}
+.letterbox b{position:absolute;left:0;right:0;height:2.6vh;background:#060204;opacity:.9}
+.letterbox b:first-child{top:0}.letterbox b:last-child{bottom:0}
+.film-ui{position:fixed;z-index:160;left:22px;bottom:18px;display:flex;align-items:center;gap:12px;font-size:.54rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.62);pointer-events:none}
+.film-ui i{width:54px;height:1px;background:linear-gradient(90deg,var(--film-gold),transparent)}
+.film-framecount{font-variant-numeric:tabular-nums;color:rgba(255,255,255,.38)}
+.grain:after{opacity:.16}
+
+.hero{background:var(--film-black)}
+.hero-pin:before{content:"OPENING SHOT";position:absolute;z-index:8;top:17vh;right:4vw;font-size:.54rem;letter-spacing:.22em;color:rgba(255,255,255,.38)}
+.hero-shade{background:
+  linear-gradient(90deg,rgba(7,3,5,.94),rgba(7,3,5,.54) 36%,rgba(7,3,5,.08) 68%),
+  linear-gradient(180deg,rgba(7,3,5,.12),rgba(7,3,5,.88) 88%)}
+.hero-copy-inner{max-width:920px}
+.hero h1{font-size:clamp(4.6rem,10vw,11rem);letter-spacing:-.06em}
+.hero .eyebrow:before{content:"00 / COLD OPEN  ";color:rgba(255,255,255,.32)}
+.hero-video{filter:saturate(.66) contrast(1.16) brightness(.64)!important}
+.lacquer-orb{display:none}
+.cinema-cut{display:none}
+.scroll-mark{border-top:1px solid rgba(255,255,255,.16);padding-top:12px}
+
+.kinetic-strip{background:#0d080b;color:var(--film-ivory);border-color:rgba(255,255,255,.08)}
+.kinetic-track span{font-size:clamp(1.5rem,3vw,3.2rem);letter-spacing:.08em;text-transform:uppercase;font-family:Manrope,sans-serif;font-weight:500}
+
+.manifest{background:var(--film-ivory);padding-top:150px;padding-bottom:150px}
+.manifest-grid{grid-template-columns:1fr 1fr}
+.manifest-grid>div:first-child{position:relative}
+.manifest-grid>div:first-child:before{content:"CUT 01 / PRESENÇA";display:block;margin-bottom:18px;font-size:.58rem;letter-spacing:.22em;color:rgba(73,34,45,.46)}
+.manifest h2{font-size:clamp(4rem,7.6vw,8.4rem)}
+.portrait-stack figure{border-radius:6px}
+.portrait-stack figure:first-child{transform:rotate(-1.5deg)}
+.portrait-stack figure:last-child{border:8px solid var(--film-ivory);transform:rotate(2.5deg)}
+.portrait-stack:before{content:"B-ROLL / ARTIST";position:absolute;z-index:8;right:2%;top:-30px;font-size:.54rem;letter-spacing:.2em;color:rgba(61,28,38,.42)}
+
+.universes{background:#0c0709;color:#fff;padding-top:120px;padding-bottom:120px}
+.u-head{align-items:flex-start}
+.u-head .eyebrow{color:var(--film-gold)!important}
+.u-head h2{color:#fff}
+.u-head p{color:rgba(255,255,255,.56)}
+.panel-wrap{grid-template-columns:repeat(3,1fr);gap:10px}
+.universe-card{border-radius:0;height:68vh;box-shadow:none;border:1px solid rgba(255,255,255,.08)}
+.universe-card:before{content:"";position:absolute;z-index:6;inset:0;border:12px solid rgba(7,3,5,.3);pointer-events:none}
+.u-copy{bottom:5%}
+.u-copy h3{font-size:clamp(3.3rem,5vw,5.8rem)}
+.u-copy .num:before{content:"SEQ ";opacity:.6}
+
+.cinema-interlude{height:112vh}
+.cinema-pin:after{content:"INTERCUT";position:absolute;right:4vw;bottom:8vh;z-index:5;font-size:.58rem;letter-spacing:.22em;color:rgba(255,255,255,.42)}
+.cinema-video{filter:saturate(.5) contrast(1.18) brightness(.48)}
+.cinema-beat{font-size:clamp(4.6rem,10vw,10.8rem)}
+.cinema-note{border-left:1px solid rgba(216,181,123,.5);padding-left:18px}
+
+.chapter{padding-top:120px;padding-bottom:120px}
+.chapter.dark{background:#0b0608}
+.chapter.light{background:var(--film-ivory)}
+.chapter-inner{grid-template-columns:1fr 1fr}
+.chapter .copy{position:relative;z-index:8}
+.chapter .copy:before{display:block;margin-bottom:18px;font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;opacity:.46}
+.chapter[data-word="LACA"] .copy:before{content:"SEQ 01 / MÃOS & GEL"}
+.chapter[data-word="PÉROLA"] .copy:before{content:"SEQ 02 / PÉS"}
+.chapter[data-word="PRECISÃO"] .copy:before{content:"SEQ 03 / SOBRANCELHAS"}
+.chapter h2{font-size:clamp(4.2rem,8vw,8.8rem)}
+.chapter-media{height:640px}
+.frame{border-radius:0}
+.frame.main{inset:0 9% 10% 5%}
+.frame.small{width:42%;height:34%;right:0;bottom:0;border:8px solid currentColor}
+.frame.tiny{width:28%;height:22%;left:-3%;top:-2%;border:6px solid currentColor}
+.chapter.dark .frame.small,.chapter.dark .frame.tiny{border-color:#0b0608}
+.chapter.light .frame.small,.chapter.light .frame.tiny{border-color:var(--film-ivory)}
+.chapter-media:before{border-radius:0;inset:7% -4% 4% 11%}
+.chapter-media:after{content:"";position:absolute;z-index:7;inset:0;pointer-events:none;background:linear-gradient(90deg,transparent 0 48%,rgba(255,255,255,.06) 49% 50%,transparent 51%)}
+.precision-svg path{stroke-width:1}
+
+.rail-section{background:#080406;padding-top:120px;padding-bottom:110px}
+.rail-head:before{content:"FILMSTRIP / SELECTED WORKS";display:block;margin-bottom:14px;font-size:.54rem;letter-spacing:.22em;color:rgba(255,255,255,.38)}
+.rail{gap:8px}
+.rail .work{border-radius:0;height:64vh;min-height:460px;border:1px solid rgba(255,255,255,.08);box-shadow:none}
+.rail .work:after{content:"";position:absolute;z-index:8;left:0;right:0;top:10px;height:6px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.25) 0 10px,transparent 10px 20px);opacity:.32;pointer-events:none}
+.work-cap{background:linear-gradient(transparent,rgba(6,2,4,.94));padding-top:100px}
+
+.artist{background:#0d080a;color:#fff;padding-top:130px;padding-bottom:130px}
+.artist-grid{grid-template-columns:1.15fr .85fr}
+.artist-photo{border-radius:0;height:720px}
+.artist-photo:after{content:"BEHIND THE SCENES";position:absolute;right:18px;top:18px;font-size:.52rem;letter-spacing:.2em;color:rgba(255,255,255,.5)}
+.artist h2{color:#fff}
+.artist p{color:rgba(255,255,255,.6)}
+.artist .btn{color:#fff!important;border-color:rgba(216,181,123,.34)!important}
+
+.proof{background:var(--film-ivory);color:var(--ink)}
+.proof .quote{color:var(--ink)}
+.proof .note{color:rgba(31,23,25,.6)}
+.ritual{background:#0a0507;color:#fff}
+.ritual h2{color:#fff}
+.ritual p{color:rgba(255,255,255,.58)}
+.ritual-card{background:rgba(255,255,255,.045);border-color:rgba(255,255,255,.09)}
+.choice{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.09);color:#fff}
+.choice span{color:rgba(255,255,255,.5)}
+.summary{border-color:rgba(255,255,255,.1)}
+.final{min-height:100vh}
+.final:before{content:"FINAL CUT";position:absolute;z-index:5;top:14vh;left:calc((100vw - var(--shell))/2);font-size:.56rem;letter-spacing:.22em;color:rgba(255,255,255,.38)}
+.final h2{font-size:clamp(4.6rem,9vw,9.6rem)}
+.footer{background:#060204}
+
+.route-hero{background:#080406}
+.route-hero:before{content:"CHAPTER OPEN";position:absolute;z-index:4;right:4vw;top:18vh;font-size:.54rem;letter-spacing:.22em;color:rgba(255,255,255,.36)}
+.route-hero-bg img{filter:saturate(.62) contrast(1.16) brightness(.58)}
+.route-strip{background:#0a0507}
+.route-story{background:var(--film-ivory)}
+.route-story-grid{grid-template-columns:.72fr 1.28fr}
+.service{border-radius:0;background:#f9f4ef;min-height:230px}
+.service:before{content:"FRAME";position:absolute;right:18px;top:16px;font-size:.48rem;letter-spacing:.18em;color:rgba(90,48,60,.28)}
+.route-cinema{background:#080406}
+.route-cinema-media img{filter:saturate(.55) contrast(1.16) brightness(.48)}
+
+@media(max-width:900px){
+  .letterbox b{height:1.5vh}
+  .film-ui{left:14px;bottom:12px;font-size:.48rem}
+  .hero{min-height:100svh}
+  .hero-pin{min-height:100svh}
+  .hero h1{font-size:clamp(3.6rem,16vw,5.7rem)}
+  .hero-pin:before{top:12svh;right:14px}
+  .manifest{padding:82px 0}
+  .manifest-grid{display:block}
+  .portrait-stack{height:68svh}
+  .universes{padding:76px 0}
+  .panel-wrap{display:flex;overflow-x:auto;padding:0 14px 18px;scroll-snap-type:x mandatory}
+  .universe-card{flex:0 0 86vw;height:64svh;scroll-snap-align:center}
+  .chapter{padding:76px 0}
+  .chapter-inner{display:block}
+  .chapter .copy{margin-bottom:28px}
+  .chapter-media{height:66svh;min-height:500px}
+  .frame.main{inset:0 4% 10% 4%}
+  .rail .work{width:84vw;height:60svh}
+  .artist{padding:78px 0}
+  .artist-grid{display:block}
+  .artist-photo{height:68svh;margin-bottom:28px}
+  .route-story-grid{display:block}
+  .route-story-copy{position:relative;top:auto;margin-bottom:30px}
+}
