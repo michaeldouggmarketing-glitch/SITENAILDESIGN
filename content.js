@@ -49,13 +49,13 @@ const routes={
 };
 
 function cinematicFree(){
-  return \`<div class="free-cinema">
+  return `<div class="free-cinema">
     <canvas id="liquidUniverse" class="liquid-universe" aria-hidden="true"></canvas>
 
     <section class="free-reflection grain">
       <div class="free-reflection-stage">
         <div class="free-nail-media">
-          <img src="\${A.h1}" alt="Detalhe real de manicure em acabamento borgonha">
+          <img src="${A.h1}" alt="Detalhe real de manicure em acabamento borgonha">
         </div>
         <div class="free-nail-shade"></div>
 
@@ -66,9 +66,7 @@ function cinematicFree(){
           <span class="free-guide">Deslize para atravessar a laca ↓</span>
         </div>
 
-        <div class="free-reflection-focus" aria-hidden="true">
-          <i></i><i></i><i></i>
-        </div>
+        <div class="free-reflection-focus" aria-hidden="true"><i></i><i></i><i></i></div>
       </div>
     </section>
 
@@ -82,15 +80,13 @@ function cinematicFree(){
     </section>
 
     <section class="gesture-emerge grain">
-      <div class="gesture-video">
-        <video src="\${A.video}" poster="\${A.hands}" muted autoplay loop playsinline></video>
-      </div>
+      <div class="gesture-video"><video src="${A.video}" poster="${A.hands}" muted autoplay loop playsinline></video></div>
       <div class="gesture-aperture" aria-hidden="true"></div>
       <div class="shell gesture-copy">
         <span class="eyebrow">MÃOS & GEL • O FILME VIRA INTERFACE</span>
         <h2 class="display">A LACA<br>VIRA GESTO.</h2>
-        <p>A matéria se abre e revela o trabalho real. Não existe um corte seco entre “efeito” e “conteúdo”.</p>
-        <a class="btn primary" href="/maos-gel">Explorar Mãos & Gel</a>
+        <p>A matéria se abre e revela o trabalho real. Não existe um corte seco entre efeito e conteúdo.</p>
+        <a class="btn primary" href="/maos-e-gel">Explorar Mãos & Gel</a>
       </div>
       <div class="gesture-contour" aria-hidden="true"></div>
     </section>
@@ -103,7 +99,7 @@ function cinematicFree(){
       </div>
     </section>
 
-    \${horizontalRail([
+    ${horizontalRail([
       [A.h1,'Mãos & Gel','Borgonha espelhado'],
       [A.h4,'Mãos & Gel','Acabamento em detalhe'],
       [A.h3,'Mãos & Gel','Nude champagne'],
@@ -112,19 +108,18 @@ function cinematicFree(){
     ],'Arraste para o lado • continue descendo')}
 
     <section class="pearl-bridge grain">
-      <div class="pearl-media"><img src="\${A.feet}" alt="Cuidado premium para os pés"></div>
+      <div class="pearl-media"><img src="${A.feet}" alt="Cuidado premium para os pés"></div>
       <div class="pearl-shade"></div>
       <div class="pearl-ripple" aria-hidden="true"><i></i><i></i><i></i></div>
       <div class="shell pearl-copy">
         <span class="eyebrow">PRÓXIMA MATÉRIA • PÉROLA</span>
         <h2 class="display">O BORGONHA<br>VIRA LUZ.</h2>
-        <p>A próxima passagem seria laca → reflexo perolado → água → cuidado dos pés, usando o mesmo motor e sem API paga.</p>
+        <p>A próxima passagem é laca → reflexo perolado → água → cuidado dos pés, usando o mesmo motor e sem API paga.</p>
         <a class="btn primary" href="/">Voltar para a Home</a>
       </div>
     </section>
-  </div>\`;
+  </div>`;
 }
-
 function routePage(d){
   const routeWorks=d.gallery.map((img,i)=>[img,d.ey,['Detalhe 01','Detalhe 02','Detalhe 03','Detalhe 04','Detalhe 05','Detalhe 06','Detalhe 07','Detalhe 08'][i]||('Detalhe '+(i+1))]);
   return `<div class="route-page route-cinematic">
