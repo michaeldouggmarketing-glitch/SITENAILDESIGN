@@ -20,6 +20,18 @@ function initMotion(){
     const thread=q('#threadPath'); if(thread)thread.style.strokeDashoffset=String(1-pageP);
     const nav=q('.nav'); if(nav)nav.classList.toggle('scrolled',scrollY>32);
 
+    const filmSeq=q('.film-seq'),filmCount=q('.film-framecount');
+    if(filmCount)filmCount.textContent=String(Math.max(1,Math.floor(pageP*9999))).padStart(4,'0');
+    if(filmSeq){
+      const scenes=[
+        ['SEQ 00',q('.hero')],['SEQ 01',q('.manifest')],['SEQ 02',q('.universes')],
+        ['SEQ 03',q('[data-word="LACA"]')],['SEQ 04',q('[data-word="PÉROLA"]')],
+        ['SEQ 05',q('[data-word="PRECISÃO"]')],['SEQ 06',q('.rail-section')],
+        ['SEQ 07',q('.artist')],['SEQ 08',q('.ritual')],['FINAL',q('.final')]
+      ].filter(x=>x[1]).map(([name,el])=>{const r=el.getBoundingClientRect();return {name,d:Math.abs((r.top+r.bottom)/2-vh*.5),v:r.bottom>0&&r.top<vh}}).filter(x=>x.v);
+      if(scenes.length)filmSeq.textContent=scenes.sort((a,b)=>a.d-b.d)[0].name;
+    }
+
     // Hero: immediate response, no delayed timeline
     const hero=q('.hero');
     if(hero){
