@@ -339,3 +339,153 @@ h1{font-size:clamp(4.3rem,9.4vw,10.4rem);line-height:.755;margin:18px 0 0;text-s
   .universe-card{position:relative!important;transform:none!important;opacity:1!important}
   .track{transform:none!important;overflow-x:auto;padding-bottom:20px}
 }
+
+
+/* ================================
+   V5 — MOBILE-STABLE / FULL-SITE MOTION
+   ================================ */
+html,body,#app,main{max-width:100%;overflow-x:hidden}
+#app{position:relative}
+.route-page,.hero,.manifest,.universes,.cinema-interlude,.chapter,.artist,.rail-section,.route-story,.route-cinema,.final{position:relative}
+
+/* Native horizontal galleries: vertical page always remains vertical */
+.rail-section{background:#11070b;color:#fff;padding:105px 0 92px;overflow:hidden}
+.rail-head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-bottom:28px}
+.rail-head h2{font-size:clamp(3.5rem,6vw,6.8rem);line-height:.82;margin:8px 0 0;max-width:850px}
+.rail-tools{display:flex;align-items:center;gap:8px}
+.rail-hint{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.54);white-space:nowrap}
+.rail-btn{width:44px;height:44px;border-radius:50%;border:1px solid rgba(216,181,124,.28);background:rgba(255,255,255,.04);color:#fff;cursor:pointer;transition:.25s var(--ease)}
+.rail-btn:hover{transform:scale(1.07);background:rgba(216,181,124,.12)}
+.rail-btn.disabled{opacity:.25}
+.rail-shell{width:100%}
+.rail{display:flex;gap:18px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding-inline:max(20px,calc((100vw - min(1180px,calc(100vw - 40px)))/2));padding:12px max(20px,calc((100vw - min(1180px,calc(100vw - 40px)))/2)) 26px;touch-action:pan-x pan-y;-webkit-overflow-scrolling:touch;overscroll-behavior-inline:contain;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.rail .work{width:min(43vw,540px);height:60vh;min-height:440px;flex:0 0 auto;scroll-snap-align:center;border-radius:28px;overflow:hidden;position:relative;background:#271017;box-shadow:0 38px 80px -42px #000;transform:none!important}
+.rail .work img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease),filter .9s var(--ease)}
+.rail .work:hover img{transform:scale(1.045);filter:saturate(1.04)}
+.rail .work-cap{position:absolute;inset:auto 0 0;padding:86px 26px 26px;background:linear-gradient(transparent,rgba(8,4,7,.94))}
+.rail .work-cap span{color:var(--champ)}
+.rail .work-cap h3{font-family:"Cormorant Garamond";font-size:2.45rem;margin:5px 0 0}
+
+/* Internal routes now use the same cinematic language */
+.route-cinematic{animation:pageIn .65s var(--ease) both}
+@keyframes pageIn{from{opacity:0;filter:blur(8px);transform:translateY(16px)}to{opacity:1;filter:blur(0);transform:none}}
+.route-hero{min-height:100svh;padding:0;display:flex;align-items:flex-end;isolation:isolate;background:#10070b}
+.route-hero-bg{position:absolute;inset:0;overflow:hidden}
+.route-hero-bg img{width:100%;height:112%;object-fit:cover;object-position:center;will-change:transform;filter:saturate(.92) contrast(1.05)}
+.route-hero-glow{position:absolute;inset:-25%;background:radial-gradient(circle at 70% 32%,rgba(218,170,130,.17),transparent 28%),radial-gradient(circle at 18% 74%,rgba(133,31,65,.28),transparent 34%);filter:blur(32px);animation:routeGlow 12s ease-in-out infinite alternate;pointer-events:none}
+@keyframes routeGlow{to{transform:translate3d(5%,-4%,0) scale(1.08)}}
+.route-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,5,8,.12),rgba(12,5,8,.2) 36%,rgba(12,5,8,.94) 86%),linear-gradient(90deg,rgba(12,5,8,.62),transparent 70%)}
+.route-hero-copy{position:relative;z-index:3;padding-bottom:8vh}
+.route-hero h1{font-size:clamp(4rem,8vw,9rem);line-height:.76;margin:16px 0;max-width:1000px}
+.route-support{max-width:620px;color:rgba(255,255,255,.68);font-size:1rem;line-height:1.75}
+.route-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:26px}
+.route-down{font-size:.64rem;letter-spacing:.17em;text-transform:uppercase;color:rgba(255,255,255,.48)}
+.route-strip{position:relative;z-index:3}
+.route-story{background:var(--paper);color:var(--ink);padding:120px 0;overflow:hidden}
+.route-story:before{content:"";position:absolute;width:46vw;aspect-ratio:1;border:1px solid rgba(121,48,68,.1);border-radius:50%;right:-12vw;top:-12vw;animation:orbitPulse 9s ease-in-out infinite alternate}
+.route-story-grid{display:grid;grid-template-columns:.86fr 1.14fr;gap:70px;align-items:start}
+.route-story-copy{position:sticky;top:120px}
+.route-story h2{font-size:clamp(3.8rem,6vw,7rem);line-height:.8;margin:10px 0}
+.route-story-copy p{max-width:520px;line-height:1.8;color:rgba(31,23,25,.62)}
+.route-list{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.service{position:relative;padding:28px;border-radius:24px;background:rgba(255,255,255,.86);border:1px solid rgba(70,30,40,.09);overflow:hidden;min-height:210px;box-shadow:0 20px 45px -38px rgba(70,25,38,.4)}
+.service:after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 25%,rgba(140,52,78,.07),transparent 68%);transform:translateX(-130%);animation:serviceSweep 7s ease-in-out infinite}
+@keyframes serviceSweep{58%,100%{transform:translateX(135%)}}
+.service-num{display:block;color:var(--ox);font-size:.62rem;letter-spacing:.2em;margin-bottom:24px}
+.service b{display:block;font-family:"Cormorant Garamond";font-size:2rem;font-weight:500;line-height:.95}
+.service p{font-size:.82rem;color:rgba(31,23,25,.58);line-height:1.65}
+.service-line{position:absolute;left:28px;right:28px;bottom:24px;height:1px;background:linear-gradient(90deg,var(--ox),transparent);transform-origin:left;animation:linePulse 4s ease-in-out infinite alternate}
+@keyframes linePulse{to{transform:scaleX(.25);opacity:.3}}
+.route-cinema{min-height:100svh;background:#10070b;display:flex;align-items:center;overflow:hidden}
+.route-cinema-media{position:absolute;inset:-7%;will-change:transform}
+.route-cinema-media img{width:100%;height:100%;object-fit:cover;filter:saturate(.8) contrast(1.12) brightness(.58)}
+.route-cinema-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,4,7,.9),rgba(10,4,7,.22) 70%),radial-gradient(circle at 70% 40%,transparent,rgba(10,4,7,.55))}
+.route-cinema-copy{position:relative;z-index:3}
+.route-cinema h2{font-size:clamp(4rem,8vw,8.8rem);line-height:.76;margin:12px 0;max-width:900px}
+.route-cinema p{max-width:520px;color:rgba(255,255,255,.62);line-height:1.8}
+
+/* Prevent dead zones caused by fading pinned content too early */
+.chapter .copy,.artist-grid>div:last-child,.manifest-grid>div:first-child{opacity:1}
+.chapter,.artist,.manifest,.universes,.cinema-interlude{contain:paint}
+
+/* Mobile: concise pinned chapters, no long blank screens */
+@media(max-width:900px){
+  body{overscroll-behavior-y:auto}
+  .hero{height:145svh}
+  .manifest{height:145svh}
+  .universes{height:250svh}
+  .cinema-interlude{height:155svh}
+  .chapter{height:150svh}
+  .artist{height:145svh}
+
+  .manifest-grid>div:first-child{left:16px;right:16px;bottom:4svh;padding:16px 17px 18px;background:rgba(244,237,229,.91);box-shadow:0 20px 46px -35px rgba(45,20,27,.55)}
+  .manifest h2{font-size:clamp(2.85rem,11.5vw,4.1rem);line-height:.8}
+  .manifest p{font-size:.81rem;line-height:1.48}
+  .portrait-stack figure:first-child{inset:6svh 8vw 20svh 8vw}
+  .portrait-stack figure:last-child{width:38vw;height:24svh;right:4vw;bottom:14svh}
+
+  .u-head{top:8svh}
+  .u-head h2{font-size:clamp(2.8rem,12.5vw,4.4rem);line-height:.78}
+  .panel-wrap{padding-top:27svh;align-items:start}
+  .universe-card{height:58svh;max-height:620px}
+  .u-copy{bottom:6%}
+  .u-copy h3{font-size:clamp(2.9rem,13vw,4.5rem)}
+  .u-copy p{font-size:.8rem;line-height:1.45}
+
+  .cinema-kicker{top:12svh}
+  .beat-1{top:31svh}.beat-2{top:51svh}
+  .cinema-note{bottom:8svh}
+
+  .chapter-media{height:100svh}
+  .frame.small{width:36vw;height:23svh;bottom:7svh}
+  .frame.tiny{width:28vw;height:18svh;top:9svh}
+  .chapter .copy{left:16px;right:16px;bottom:4svh;padding:17px 17px 18px;background:linear-gradient(180deg,rgba(18,7,12,.08),rgba(18,7,12,.83))}
+  .chapter.light .copy{background:linear-gradient(180deg,rgba(246,240,232,.16),rgba(246,240,232,.94))}
+  .chapter h2{font-size:clamp(2.85rem,12.2vw,4.45rem);line-height:.77}
+  .chapter .copy p{font-size:.8rem;line-height:1.46}
+  .chapter:before{font-size:31vw;top:9svh}
+
+  .rail-section{padding:78px 0 62px}
+  .rail-head{display:block;margin-bottom:18px}
+  .rail-head h2{font-size:clamp(2.9rem,12.5vw,4.5rem);line-height:.8;margin-top:7px}
+  .rail-tools{margin-top:14px;justify-content:space-between}
+  .rail-hint{font-size:.58rem}
+  .rail-btn{width:40px;height:40px}
+  .rail{gap:12px;padding:8px 14px 20px}
+  .rail .work{width:82vw;height:61svh;min-height:430px;border-radius:24px}
+  .rail .work-cap{padding:72px 22px 22px}
+  .rail .work-cap h3{font-size:2.15rem}
+
+  .artist-photo{inset:6svh 16px 17svh}
+  .artist-grid>div:last-child{left:16px;right:16px;bottom:4svh;padding:17px;background:rgba(244,237,229,.92)}
+  .artist h2{font-size:clamp(2.85rem,12vw,4.2rem)}
+  .artist p{font-size:.8rem;line-height:1.46}
+
+  .route-hero{min-height:100svh}
+  .route-hero-copy{padding-bottom:7svh}
+  .route-hero h1{font-size:clamp(3.6rem,15vw,5.9rem)}
+  .route-support{font-size:.86rem;line-height:1.58;max-width:90vw}
+  .route-actions{align-items:flex-start;flex-direction:column;gap:13px}
+  .route-story{padding:82px 0}
+  .route-story-grid{display:block}
+  .route-story-copy{position:relative;top:auto;margin-bottom:36px}
+  .route-story h2{font-size:clamp(3rem,12.5vw,4.6rem)}
+  .route-story-copy p{font-size:.84rem;line-height:1.55}
+  .route-list{grid-template-columns:1fr;gap:12px}
+  .service{min-height:170px;padding:23px}
+  .route-cinema{min-height:100svh}
+  .route-cinema h2{font-size:clamp(3.5rem,15vw,5.7rem)}
+  .route-cinema p{font-size:.84rem;line-height:1.55}
+}
+
+/* Extra-small Android devices */
+@media(max-width:430px){
+  .brand strong{font-size:1.18rem}
+  .brand span{font-size:.46rem}
+  .pill{font-size:.55rem;padding:10px 13px}
+  .hero h1{font-size:clamp(3.25rem,15vw,5.1rem)}
+  .hero-sub{font-size:.82rem}
+  .manifest h2,.u-head h2,.chapter h2,.artist h2{overflow-wrap:normal;word-break:normal}
+  .u-copy .btn,.chapter .btn{max-width:100%;font-size:.54rem;padding-inline:15px}
+}
