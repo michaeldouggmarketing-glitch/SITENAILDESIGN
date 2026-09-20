@@ -159,7 +159,7 @@ function routePage(d){
     ${footer()}
   </div>`;
 }
-function render(){const p=location.pathname.replace(/\/$/,'')||'/';document.body.classList.toggle('free-cinema-mode',p==='/cinematic-free');app.innerHTML=p==='/cinematic-free'?cinematicFree():(p==='/'?home():routePage(routes[p]||routes['/experiencias']));window.scrollTo(0,0);initMotion();initRitual();initRails();}
+function render(){const p=location.pathname.replace(/\/$/,'')||'/';const isProof=p==='/'||p==='/cinematic-free';document.body.classList.toggle('free-cinema-mode',isProof);app.innerHTML=isProof?cinematicFree():routePage(routes[p]||routes['/experiencias']);window.scrollTo(0,0);initMotion();initRitual();initRails();}
 function initRails(){
   document.querySelectorAll('.rail-section').forEach(section=>{
     const rail=section.querySelector('.rail');
