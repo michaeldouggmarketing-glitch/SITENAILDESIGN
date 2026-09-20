@@ -43,11 +43,68 @@ function initMotion(){
       }
     }
 
+    // CVD Cinematic proof: camera physically enters the nail reflection.
+    const reflection=q('.reflection-hero');
+    if(reflection){
+      const r=reflection.getBoundingClientRect();
+      const travel=Math.max(1,reflection.offsetHeight-vh);
+      const p=clamp(-r.top/travel);
+      const nail=q('.reflection-nail',reflection),copy=q('.reflection-copy',reflection),ring=q('.reflection-ring',reflection),portal=q('.reflection-portal',reflection);
+      if(nail){
+        const zoom=ease(clamp(p/.72));
+        nail.style.transform='translate3d('+mix(0,mobile()?-16:-7,zoom)+'vw,'+mix(0,mobile()?-8:-4,zoom)+'vh,0) scale('+mix(1,mobile()?1.72:1.9,zoom)+')';
+        nail.style.filter='saturate('+mix(1,.86,p)+') contrast('+mix(1,1.12,p)+') brightness('+mix(1,.64,p)+')';
+      }
+      if(copy){
+        const out=clamp((p-.08)/.5);
+        copy.style.transform='translate3d(0,'+mix(0,-56,out)+'px,0) scale('+mix(1,.96,out)+')';
+        copy.style.opacity=String(1-out*.9);
+      }
+      if(ring){
+        const rp=clamp((p-.06)/.58);
+        ring.style.transform='translate(-50%,-50%) scale('+mix(1,2.8,rp)+') rotate('+mix(0,18,rp)+'deg)';
+        ring.style.opacity=String(mix(1,.08,clamp((p-.38)/.38)));
+      }
+      if(portal){
+        const open=clamp((p-.24)/.62);
+        const radius=mix(0,165,ease(open));
+        const x=mobile()?67:66,y=mobile()?39:43;
+        portal.style.clipPath='circle('+radius+'% at '+x+'% '+y+'%)';
+        portal.style.transform='scale('+mix(1,1.16,open)+') rotate('+mix(0,-3,open)+'deg)';
+        portal.style.filter='brightness('+mix(.82,1.04,open)+') saturate('+mix(.92,1.08,open)+')';
+      }
+    }
+
     // Generic visible progress: starts as soon as section reaches viewport
     const visibleP=el=>{
       const r=el.getBoundingClientRect();
       return clamp((vh-r.top)/(vh+r.height));
     };
+
+    const inside=q('.inside-lacquer');
+    if(inside){
+      const p=visibleP(inside),bg=q('.inside-bg',inside),copy=q('.inside-copy',inside);
+      if(bg) bg.style.transform='translate3d('+mix(0,-3,p)+'vw,'+mix(34,-36,p)+'px,0) scale('+mix(1.05,1.22,p)+') rotate('+mix(-1.5,2,p)+'deg)';
+      if(copy){
+        copy.style.transform='translate3d('+mix(-28,14,p)+'px,'+mix(24,-14,p)+'px,0)';
+        copy.style.opacity=String(mix(.58,1,clamp(p*1.7)));
+      }
+    }
+
+    const emerge=q('.emerge-scene');
+    if(emerge){
+      const p=visibleP(emerge),media=q('.emerge-media',emerge),copy=q('.emerge-copy',emerge),line=q('.emerge-line',emerge);
+      if(media) media.style.transform='translate3d(0,'+mix(28,-32,p)+'px,0) scale('+mix(1.06,1.18,p)+')';
+      if(copy) copy.style.transform='translate3d('+mix(-26,10,p)+'px,'+mix(34,-18,p)+'px,0)';
+      if(line) line.style.transform='translate3d('+mix(-12,8,p)+'vw,'+mix(24,-20,p)+'px,0) rotate('+mix(-7,-2,p)+'deg)';
+    }
+
+    const next=q('.proof-next');
+    if(next){
+      const p=visibleP(next),media=q('.proof-next-media',next),copy=q('.proof-next-copy',next);
+      if(media) media.style.transform='translate3d(0,'+mix(28,-24,p)+'px,0) scale('+mix(1.03,1.13,p)+')';
+      if(copy) copy.style.transform='translate3d('+mix(-20,8,p)+'px,'+mix(22,-12,p)+'px,0)';
+    }
 
     const manifest=q('.manifest');
     if(manifest){
