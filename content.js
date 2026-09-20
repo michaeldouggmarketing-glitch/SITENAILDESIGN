@@ -7,7 +7,23 @@ const A={
 };
 const WA='https://wa.me/5511999998888';
 const app=document.querySelector('#app');
-const home=()=>`<section class="hero grain" data-scene="0"><div class="hero-pin"><div class="ambient"><i></i><i></i><i></i></div><div class="hero-media"><img class="hero-poster" src="${A.hero}" alt="Composição editorial de beleza"><video class="hero-video" src="${A.video}" poster="${A.hero}" muted playsinline autoplay loop></video></div><div class="hero-shade"></div><div class="lacquer-orb"></div><div class="shell hero-copy"><div class="hero-copy-inner"><div class="eyebrow">Maíra Beauty Atelier • mãos • pés • sobrancelhas</div><h1 class="display"><span class="hero-line"><span>BELEZA</span></span><span class="hero-line"><span>DESENHADA EM</span></span><span class="hero-line"><span>CADA DETALHE.</span></span></h1><p class="hero-sub">Uma experiência de cuidado onde técnica, presença e acabamento se encontram. O site acompanha o gesto — e não apenas mostra o resultado.</p><div class="hero-actions"><a class="btn primary" href="/agendar">Agendar meu horário</a><a class="btn" href="/portfolio">Ver portfólio</a></div></div></div><div class="cinema-cut" aria-hidden="true"></div><div class="scroll-mark">role para entrar na matéria ↓</div></div></section>
+function horizontalRail(items,label='Trabalhos selecionados'){
+  return `<section class="rail-section grain">
+    <div class="shell rail-head">
+      <div><div class="eyebrow" style="color:var(--champ)">${label}</div><h2 class="display">DETALHES QUE CONTAM HISTÓRIAS.</h2></div>
+      <div class="rail-tools"><span class="rail-hint">Arraste para o lado →</span><button class="rail-btn prev" type="button" aria-label="Anterior">←</button><button class="rail-btn next" type="button" aria-label="Próximo">→</button></div>
+    </div>
+    <div class="rail-shell">
+      <div class="rail" tabindex="0">
+        ${items.map((x,i)=>`<figure class="work" data-rail-item>
+          <img src="${x[0]}" alt="${x[2]||'Trabalho '+(i+1)}">
+          <figcaption class="work-cap"><span class="eyebrow">${x[1]||label}</span><h3>${x[2]||'Detalhe autoral'}</h3></figcaption>
+        </figure>`).join('')}
+      </div>
+    </div>
+  </section>`;
+}
+const home=()=>`<section class="hero grain" data-scene="0"><div class="hero-pin"><div class="ambient"><i></i><i></i><i></i></div><div class="hero-media"><img class="hero-poster" src="${A.hero}" alt="Composição editorial de beleza"><video class="hero-video" src="${A.video}" poster="${A.hero}" muted playsinline autoplay loop></video></div><div class="hero-shade"></div><div class="lacquer-orb"></div><div class="shell hero-copy"><div class="hero-copy-inner"><div class="eyebrow">Maíra Beauty Atelier • mãos • pés • sobrancelhas</div><h1 class="display"><span class="hero-line"><span>BELEZA</span></span><span class="hero-line"><span>DESENHADA EM</span></span><span class="hero-line"><span>CADA DETALHE.</span></span></h1><p class="hero-sub">Uma experiência de cuidado onde técnica, presença e acabamento se encontram. O site acompanha o gesto — e não apenas mostra o resultado.</p><div class="hero-actions"><a class="btn primary" href="/agendar">Agendar meu horário</a><a class="btn" href="/portfolio">Ver portfólio</a></div></div></div><div class="cinema-cut" aria-hidden="true"></div><div class="scroll-mark">Deslize para continuar ↓</div></div></section>
 <section class="kinetic-strip" aria-hidden="true"><div class="kinetic-track"><span>BELEZA EM MOVIMENTO • LACA • PÉROLA • PRECISÃO • </span><span>BELEZA EM MOVIMENTO • LACA • PÉROLA • PRECISÃO • </span></div></section>
 <section class="manifest grain" data-scene="1"><div class="microtag">ATELIER</div><div class="shell manifest-grid"><div><div class="eyebrow" style="color:var(--ox)">Manifesto</div><h2 class="display">NÃO É SÓ ESTÉTICA.<br>É PRESENÇA.</h2><p>Cada detalhe comunica. A proposta não é criar um personagem, mas revelar forma, proporção e acabamento de um jeito que ainda parece seu.</p><a class="btn" style="color:var(--ink);border-color:rgba(120,30,58,.24)" href="/sobre">Conhecer a filosofia</a></div><div class="portrait-stack"><figure class="portrait-a"><img src="${A.artist}" alt="Retrato editorial da profissional"></figure><figure class="portrait-b"><img src="${A.b3}" alt="Olhar e sobrancelhas em enquadramento editorial"></figure></div></div></section>
 <section class="universes" data-scene="2"><div class="universes-pin"><div class="u-head"><div><div class="eyebrow" style="color:var(--ox)">Três matérias</div><h2 class="display">LACA. PÉROLA.<br>PRECISÃO.</h2></div><p>Três universos. Uma assinatura. Cada capítulo muda de matéria sem quebrar a mesma experiência.</p></div><div class="panel-wrap"><article class="universe-card u1"><video src="${A.video}" muted playsinline autoplay loop></video><div class="u-overlay"></div><div class="u-copy"><span class="num">01 • LACA</span><h3>MÃOS & GEL</h3><p>Forma, cor e acabamento ganham profundidade. O brilho deixa de ser detalhe e vira matéria.</p><a class="btn" href="/maos-e-gel">Entrar no capítulo</a></div></article><article class="universe-card u2"><img src="${A.feet}" alt="Cuidado para os pés"><div class="u-overlay"></div><div class="u-copy"><span class="num">02 • PÉROLA</span><h3>PÉS</h3><p>Luz, água e leveza. O movimento desacelera e abre espaço para o cuidado.</p><a class="btn" href="/pes">Entrar no capítulo</a></div></article><article class="universe-card u3"><img src="${A.brows}" alt="Design de sobrancelhas"><div class="u-overlay"></div><div class="u-copy"><span class="num">03 • PRECISÃO</span><h3>SOBRANCELHAS</h3><p>Linha, proporção e expressão. A matéria se afina até virar desenho.</p><a class="btn" href="/sobrancelhas">Entrar no capítulo</a></div></article></div></div></section>
@@ -15,7 +31,7 @@ const home=()=>`<section class="hero grain" data-scene="0"><div class="hero-pin"
 <section class="chapter dark grain" data-scene="3" data-word="LACA"><div class="lacquer-sheet"></div><div class="chapter-inner"><div class="copy"><div class="eyebrow chapter-label">Mãos & Gel • laca em movimento</div><h2 class="display">COR QUE<br>GANHA<br>PRESENÇA.</h2><p>Do desenho da forma ao brilho final: estrutura leve, pigmento profundo e acabamento que pede um segundo olhar.</p><a class="btn primary" href="/maos-e-gel">Explorar Mãos & Gel</a></div><div class="chapter-media hands-media"><div class="frame main"><video src="${A.video}" muted autoplay loop playsinline></video></div><div class="frame small"><img src="${A.h4}" alt="Nail design em detalhe"></div><div class="frame tiny"><img src="${A.lacquer}" alt="Textura borgonha"></div></div></div></section>
 <section class="chapter light grain" data-scene="4" data-word="PÉROLA"><div class="water"></div><div class="chapter-inner"><div class="copy"><div class="eyebrow" style="color:var(--ox)">Pés • pérola e leveza</div><h2 class="display">O RITMO<br>MUDA.</h2><p>Um momento de cuidado que desacelera a narrativa. Superfícies claras, reflexos de água e acabamento limpo fazem a experiência respirar.</p><a class="btn" style="color:var(--ink)" href="/pes">Explorar cuidados para os pés</a></div><div class="chapter-media feet-media"><div class="frame main"><img src="${A.feet}" alt="Pedicure editorial"></div><div class="frame small"><img src="${A.f2}" alt="Acabamento das unhas dos pés"></div><div class="frame tiny"><img src="${A.f3}" alt="Materiais de cuidado"></div></div></div></section>
 <section class="chapter dark grain" data-scene="5" data-word="PRECISÃO"><div class="chapter-inner"><div class="copy"><div class="eyebrow chapter-label">Sobrancelhas • precisão</div><h2 class="display">O TRAÇO<br>MUDA TODO<br>O OLHAR.</h2><p>A linha que atravessou a experiência vira mapeamento: início, arco e final. Naturalidade primeiro; precisão em cada decisão.</p><a class="btn primary" href="/sobrancelhas">Descobrir o design</a></div><div class="chapter-media brow-media"><div class="frame main"><img src="${A.b2}" alt="Sobrancelha em macro"></div><div class="frame small"><img src="${A.b4}" alt="Finalização do design"></div><div class="frame tiny"><img src="${A.b1}" alt="Mapeamento da sobrancelha"></div><svg class="precision-svg" viewBox="0 0 700 700"><path pathLength="1" d="M80 470 C 180 310, 320 250, 610 335"/><path pathLength="1" d="M120 520 C 260 390, 430 370, 640 430"/></svg></div></div></section>
-<section class="portfolio" data-scene="5"><div class="portfolio-pin"><div class="portfolio-head"><div class="eyebrow" style="color:var(--champ)">Portfólio selecionado</div><h2 class="display">DETALHES QUE<br>CONTAM HISTÓRIAS.</h2></div><div class="track">${[[A.h1,'Mãos & Gel','Borgonha espelhado'],[A.b1,'Sobrancelhas','Mapeamento do arco'],[A.f2,'Pés','Precisão no contorno'],[A.h3,'Mãos & Gel','Nude champagne'],[A.b3,'Sobrancelhas','Expressão equilibrada'],[A.f3,'Pés','O gesto do cuidado']].map(x=>`<figure class="work"><img src="${x[0]}" alt="${x[2]}"><figcaption class="work-cap"><span class="eyebrow">${x[1]}</span><h3>${x[2]}</h3></figcaption></figure>`).join('')}</div></div></section>
+${horizontalRail([[A.h1,'Mãos & Gel','Borgonha espelhado'],[A.b1,'Sobrancelhas','Mapeamento do arco'],[A.f2,'Pés','Precisão no contorno'],[A.h3,'Mãos & Gel','Nude champagne'],[A.b3,'Sobrancelhas','Expressão equilibrada'],[A.f3,'Pés','O gesto do cuidado']],'Portfólio selecionado')}
 <section class="kinetic-strip kinetic-strip-dark" aria-hidden="true"><div class="kinetic-track reverse"><span>DETALHE • RITMO • PRESENÇA • ACABAMENTO • </span><span>DETALHE • RITMO • PRESENÇA • ACABAMENTO • </span></div></section>
 <section class="artist grain" data-scene="5"><div class="shell artist-grid"><div class="artist-photo"><img src="${A.artist}" alt="Retrato editorial da profissional"><div class="signature">Maíra</div></div><div><div class="eyebrow" style="color:var(--ox)">A artista por trás dos detalhes</div><h2 class="display">TÉCNICA,<br>INTENÇÃO<br>E ARTE.</h2><p>Cada atendimento começa com observação e escuta. Referências, rotina e estilo pessoal orientam a experiência — do primeiro traço ao acabamento.</p><a class="btn" style="color:var(--ink)" href="/sobre">Conhecer a profissional</a></div></div></section>
 <section class="proof grain"><div class="shell"><small>Prova social</small><div class="quote">“RESULTADO QUE SE PERCEBE.<br>CUIDADO QUE SE SENTE.”</div><p class="note">Esta área deve receber somente depoimentos reais autorizados. O layout já está preparado para foto, áudio curto e relato verificável — sem inventar prova social.</p></div></section>
@@ -31,6 +47,56 @@ const routes={
  '/sobre':{ey:'Sobre a profissional',title:'BELEZA COM INTENÇÃO. DETALHE COM ASSINATURA.',support:'Cada atendimento começa com observação e escuta. Referências, rotina e preferências orientam um trabalho que une técnica, sensibilidade e acabamento.',img:A.artist,head:'A BELEZA MAIS FORTE É A QUE AINDA PARECE SUA.',text:'A proposta do atelier não é criar um personagem. É usar detalhe, proporção, cor e acabamento para revelar presença.',services:[['Escuta antes da técnica','A conversa vem antes do gesto.'],['Personalização real','Forma e desenho definidos para você.'],['Acabamento como assinatura','O detalhe final separa serviço de experiência.'],['Experiência confortável','Ambiente, ritmo e clareza fazem parte do cuidado.']],gallery:[A.artist,A.space,A.h3,A.b3]},
  '/agendar':{ey:'Agendar / contato',title:'MONTE SEU RITUAL. NÓS CUIDAMOS DO RESTO.',support:'Escolha um ou mais universos, selecione o que faz sentido e leve tudo organizado para uma conversa no WhatsApp.',img:A.hero,head:'TRÊS PASSOS. ZERO FRICÇÃO.',text:'Escolha seus serviços, revise a combinação e consulte os horários pelo WhatsApp.',services:[['1. Escolha','Selecione Mãos & Gel, Pés e/ou Sobrancelhas.'],['2. Revise','A combinação aparece organizada antes do envio.'],['3. Consulte','O WhatsApp abre com a mensagem pronta.'],['4. Confirme','A profissional confirma disponibilidade e próximos passos.']],gallery:[A.h1,A.feet,A.b2,A.artist]}
 };
-function routePage(d){return `<div class="route-page"><section class="route-hero grain"><div class="route-hero-bg"><img src="${d.img}" alt="${d.ey}"></div><div class="shell"><div class="eyebrow" style="color:var(--champ)">${d.ey}</div><h1 class="display">${d.title}</h1><p class="hero-sub" style="opacity:1;transform:none">${d.support}</p><a class="btn primary" href="${WA}?text=Olá! Vim pelo site e gostaria de conversar sobre ${encodeURIComponent(d.ey)}." target="_blank" rel="noopener">Conversar no WhatsApp</a></div></section><section class="route-body"><div class="shell route-copy"><div><div class="eyebrow" style="color:var(--ox)">Experiência</div><h2 class="display">${d.head}</h2><p style="line-height:1.9;color:rgba(31,23,25,.62)">${d.text}</p></div><div class="route-list">${d.services.map(x=>`<article class="service"><b>${x[0]}</b><p>${x[1]}</p></article>`).join('')}</div></div></section><section class="route-gallery"><div class="shell"><div class="eyebrow" style="color:var(--champ)">Direção visual</div><div class="masonry" style="margin-top:28px">${d.gallery.map((x,i)=>`<figure><img src="${x}" alt="Referência visual ${i+1}"></figure>`).join('')}</div></div></section><section class="final grain"><div class="final-bg"></div><div class="shell final-inner"><div class="eyebrow" style="color:var(--champ)">Seu momento</div><h2 class="display">CONVERSE SOBRE O RESULTADO QUE VOCÊ QUER.</h2><a class="btn primary" href="${WA}?text=Olá! Vim pelo site e gostaria de consultar os horários disponíveis." target="_blank" rel="noopener">Agendar meu horário</a></div></section>${footer()}</div>`}
-function render(){const p=location.pathname.replace(/\/$/,'')||'/';app.innerHTML=p==='/'?home():routePage(routes[p]||routes['/experiencias']);window.scrollTo(0,0);initMotion();initRitual();}
+function routePage(d){
+  const routeWorks=d.gallery.map((img,i)=>[img,d.ey,['Detalhe 01','Detalhe 02','Detalhe 03','Detalhe 04','Detalhe 05','Detalhe 06','Detalhe 07','Detalhe 08'][i]||('Detalhe '+(i+1))]);
+  return `<div class="route-page route-cinematic">
+    <section class="route-hero route-motion grain">
+      <div class="route-hero-bg"><img src="${d.img}" alt="${d.ey}"></div>
+      <div class="route-hero-glow"></div>
+      <div class="shell route-hero-copy">
+        <div class="eyebrow" style="color:var(--champ)">${d.ey}</div>
+        <h1 class="display">${d.title}</h1>
+        <p class="route-support">${d.support}</p>
+        <div class="route-actions"><a class="btn primary" href="${WA}?text=Olá! Vim pelo site e gostaria de conversar sobre ${encodeURIComponent(d.ey)}." target="_blank" rel="noopener">Conversar no WhatsApp</a><span class="route-down">Deslize para descobrir ↓</span></div>
+      </div>
+    </section>
+    <section class="kinetic-strip route-strip" aria-hidden="true"><div class="kinetic-track"><span>${d.head} • DETALHE • PRESENÇA • </span><span>${d.head} • DETALHE • PRESENÇA • </span></div></section>
+    <section class="route-story grain">
+      <div class="shell route-story-grid">
+        <div class="route-story-copy">
+          <div class="eyebrow" style="color:var(--ox)">Experiência</div>
+          <h2 class="display">${d.head}</h2>
+          <p>${d.text}</p>
+        </div>
+        <div class="route-list">${d.services.map((x,i)=>`<article class="service" data-service-card><span class="service-num">0${i+1}</span><b>${x[0]}</b><p>${x[1]}</p><i class="service-line"></i></article>`).join('')}</div>
+      </div>
+    </section>
+    ${horizontalRail(routeWorks,'Galeria • deslize')}
+    <section class="route-cinema grain">
+      <div class="route-cinema-media"><img src="${d.gallery[1]||d.img}" alt=""></div>
+      <div class="route-cinema-shade"></div>
+      <div class="shell route-cinema-copy"><span class="eyebrow" style="color:var(--champ)">Experiência contínua</span><h2 class="display">CADA DETALHE<br>CONDUZ AO<br>PRÓXIMO.</h2><p>Movimento, imagem e conteúdo trabalham juntos. Nada entra seco, nada termina sem entregar a próxima cena.</p></div>
+    </section>
+    <section class="final grain"><div class="final-bg"></div><div class="shell final-inner"><div class="eyebrow" style="color:var(--champ)">Seu momento</div><h2 class="display">CONVERSE SOBRE O RESULTADO QUE VOCÊ QUER.</h2><a class="btn primary" href="${WA}?text=Olá! Vim pelo site e gostaria de consultar os horários disponíveis." target="_blank" rel="noopener">Agendar meu horário</a></div></section>
+    ${footer()}
+  </div>`;
+}
+function render(){const p=location.pathname.replace(/\/$/,'')||'/';app.innerHTML=p==='/'?home():routePage(routes[p]||routes['/experiencias']);window.scrollTo(0,0);initMotion();initRitual();initRails();}
+function initRails(){
+  document.querySelectorAll('.rail-section').forEach(section=>{
+    const rail=section.querySelector('.rail');
+    const prev=section.querySelector('.rail-btn.prev');
+    const next=section.querySelector('.rail-btn.next');
+    if(!rail)return;
+    const step=()=>Math.max(260,Math.min(rail.clientWidth*.78,560));
+    prev?.addEventListener('click',()=>rail.scrollBy({left:-step(),behavior:'smooth'}));
+    next?.addEventListener('click',()=>rail.scrollBy({left:step(),behavior:'smooth'}));
+    const update=()=>{
+      const max=rail.scrollWidth-rail.clientWidth-4;
+      prev?.classList.toggle('disabled',rail.scrollLeft<8);
+      next?.classList.toggle('disabled',rail.scrollLeft>max);
+    };
+    rail.addEventListener('scroll',update,{passive:true}); update();
+  });
+}
 function initRitual(){const choices=[...document.querySelectorAll('.choice')], text=document.querySelector('#ritualText'), link=document.querySelector('#ritualWa');if(!choices.length)return;const selected=new Set;choices.forEach(b=>b.addEventListener('click',()=>{const v=b.dataset.choice;selected.has(v)?selected.delete(v):selected.add(v);b.classList.toggle('active',selected.has(v));const arr=[...selected];text.textContent=arr.length?arr.join(' + '):'nenhum universo selecionado ainda.';link.href=WA+'?text='+encodeURIComponent('Olá! Vim pelo site e gostaria de montar meu ritual com: '+(arr.length?arr.join(', '):'quero ajuda para escolher')+'. Pode me mostrar as disponibilidades?')}))}
