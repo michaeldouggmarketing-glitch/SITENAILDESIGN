@@ -47,6 +47,84 @@ const routes={
  '/sobre':{ey:'Sobre a profissional',title:'BELEZA COM INTENÇÃO. DETALHE COM ASSINATURA.',support:'Cada atendimento começa com observação e escuta. Referências, rotina e preferências orientam um trabalho que une técnica, sensibilidade e acabamento.',img:A.artist,head:'A BELEZA MAIS FORTE É A QUE AINDA PARECE SUA.',text:'A proposta do atelier não é criar um personagem. É usar detalhe, proporção, cor e acabamento para revelar presença.',services:[['Escuta antes da técnica','A conversa vem antes do gesto.'],['Personalização real','Forma e desenho definidos para você.'],['Acabamento como assinatura','O detalhe final separa serviço de experiência.'],['Experiência confortável','Ambiente, ritmo e clareza fazem parte do cuidado.']],gallery:[A.artist,A.space,A.h3,A.b3]},
  '/agendar':{ey:'Agendar / contato',title:'MONTE SEU RITUAL. NÓS CUIDAMOS DO RESTO.',support:'Escolha um ou mais universos, selecione o que faz sentido e leve tudo organizado para uma conversa no WhatsApp.',img:A.hero,head:'TRÊS PASSOS. ZERO FRICÇÃO.',text:'Escolha seus serviços, revise a combinação e consulte os horários pelo WhatsApp.',services:[['1. Escolha','Selecione Mãos & Gel, Pés e/ou Sobrancelhas.'],['2. Revise','A combinação aparece organizada antes do envio.'],['3. Consulte','O WhatsApp abre com a mensagem pronta.'],['4. Confirme','A profissional confirma disponibilidade e próximos passos.']],gallery:[A.h1,A.feet,A.b2,A.artist]}
 };
+
+function cinematicFree(){
+  return \`<div class="free-cinema">
+    <canvas id="liquidUniverse" class="liquid-universe" aria-hidden="true"></canvas>
+
+    <section class="free-reflection grain">
+      <div class="free-reflection-stage">
+        <div class="free-nail-media">
+          <img src="\${A.h1}" alt="Detalhe real de manicure em acabamento borgonha">
+        </div>
+        <div class="free-nail-shade"></div>
+
+        <div class="free-reflection-copy shell">
+          <span class="eyebrow">CVD CINEMATIC WEB • SEM VÍDEO PAGO</span>
+          <h1 class="display">ENTRE<br>NO REFLEXO.</h1>
+          <p>A própria interface vira a câmera. O reflexo está vivo antes mesmo do primeiro toque.</p>
+          <span class="free-guide">Deslize para atravessar a laca ↓</span>
+        </div>
+
+        <div class="free-reflection-focus" aria-hidden="true">
+          <i></i><i></i><i></i>
+        </div>
+      </div>
+    </section>
+
+    <section class="liquid-world grain">
+      <div class="shell liquid-world-copy">
+        <span class="eyebrow">LACA • VOCÊ ESTÁ DENTRO DA MATÉRIA</span>
+        <h2 class="display">A PÁGINA<br>NÃO TROCOU.<br>ELA ABRIU.</h2>
+        <p>Esse movimento é renderizado em tempo real no navegador. Ele continua respirando mesmo com o dedo parado.</p>
+      </div>
+      <div class="liquid-depth" aria-hidden="true"><span>01</span><span>LACA</span><span>MATÉRIA</span></div>
+    </section>
+
+    <section class="gesture-emerge grain">
+      <div class="gesture-video">
+        <video src="\${A.video}" poster="\${A.hands}" muted autoplay loop playsinline></video>
+      </div>
+      <div class="gesture-aperture" aria-hidden="true"></div>
+      <div class="shell gesture-copy">
+        <span class="eyebrow">MÃOS & GEL • O FILME VIRA INTERFACE</span>
+        <h2 class="display">A LACA<br>VIRA GESTO.</h2>
+        <p>A matéria se abre e revela o trabalho real. Não existe um corte seco entre “efeito” e “conteúdo”.</p>
+        <a class="btn primary" href="/maos-gel">Explorar Mãos & Gel</a>
+      </div>
+      <div class="gesture-contour" aria-hidden="true"></div>
+    </section>
+
+    <section class="free-swipe-intro grain">
+      <div class="shell">
+        <span class="eyebrow">TRABALHOS • INTERAÇÃO NATIVA</span>
+        <h2 class="display">PARA O LADO,<br>OUTRAS HISTÓRIAS.</h2>
+        <p>Arraste os trabalhos para o lado. Continue descendo normalmente para seguir a experiência.</p>
+      </div>
+    </section>
+
+    \${horizontalRail([
+      [A.h1,'Mãos & Gel','Borgonha espelhado'],
+      [A.h4,'Mãos & Gel','Acabamento em detalhe'],
+      [A.h3,'Mãos & Gel','Nude champagne'],
+      [A.b1,'Precisão','A linha nasce'],
+      [A.f2,'Pérola','A matéria clareia']
+    ],'Arraste para o lado • continue descendo')}
+
+    <section class="pearl-bridge grain">
+      <div class="pearl-media"><img src="\${A.feet}" alt="Cuidado premium para os pés"></div>
+      <div class="pearl-shade"></div>
+      <div class="pearl-ripple" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="shell pearl-copy">
+        <span class="eyebrow">PRÓXIMA MATÉRIA • PÉROLA</span>
+        <h2 class="display">O BORGONHA<br>VIRA LUZ.</h2>
+        <p>A próxima passagem seria laca → reflexo perolado → água → cuidado dos pés, usando o mesmo motor e sem API paga.</p>
+        <a class="btn primary" href="/">Voltar para a Home</a>
+      </div>
+    </section>
+  </div>\`;
+}
+
 function routePage(d){
   const routeWorks=d.gallery.map((img,i)=>[img,d.ey,['Detalhe 01','Detalhe 02','Detalhe 03','Detalhe 04','Detalhe 05','Detalhe 06','Detalhe 07','Detalhe 08'][i]||('Detalhe '+(i+1))]);
   return `<div class="route-page route-cinematic">
@@ -81,7 +159,7 @@ function routePage(d){
     ${footer()}
   </div>`;
 }
-function render(){const p=location.pathname.replace(/\/$/,'')||'/';app.innerHTML=p==='/'?home():routePage(routes[p]||routes['/experiencias']);window.scrollTo(0,0);initMotion();initRitual();initRails();}
+function render(){const p=location.pathname.replace(/\/$/,'')||'/';document.body.classList.toggle('free-cinema-mode',p==='/cinematic-free');app.innerHTML=p==='/cinematic-free'?cinematicFree():(p==='/'?home():routePage(routes[p]||routes['/experiencias']));window.scrollTo(0,0);initMotion();initRitual();initRails();}
 function initRails(){
   document.querySelectorAll('.rail-section').forEach(section=>{
     const rail=section.querySelector('.rail');
