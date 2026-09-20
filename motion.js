@@ -49,6 +49,48 @@ function initMotion(){
       return clamp((vh-r.top)/(vh+r.height));
     };
 
+    const storyLayers={
+      woman:q('.story-woman'),hands:q('.story-hands'),feet:q('.story-feet'),brows:q('.story-brows')
+    };
+    const activateStory=name=>{
+      Object.entries(storyLayers).forEach(([key,el])=>{
+        if(!el)return;
+        const active=key===name;
+        el.classList.toggle('active',active);
+        if(active){
+          const drift=Math.sin(scrollY*.0018)*8;
+          el.style.transform='translate3d('+drift+'px,'+(-drift*.35)+'px,0) scale('+(mobile()?1.07:1.05)+')';
+        }
+      });
+    };
+    if(q('.story-backdrop')){
+      const heroEl=q('.hero'),handsEl=q('[data-word="LACA"]'),feetEl=q('[data-word="PÉROLA"]'),browsEl=q('[data-word="PRECISÃO"]');
+      const center=vh*.48;
+      const candidates=[
+        ['woman',heroEl],['hands',handsEl],['feet',feetEl],['brows',browsEl]
+      ].filter(x=>x[1]).map(([name,el])=>{
+        const r=el.getBoundingClientRect();
+        const d=Math.abs((r.top+r.bottom)/2-center);
+        return {name,d,visible:r.bottom>0&&r.top<vh};
+      }).filter(x=>x.visible);
+      activateStory(candidates.length?candidates.sort((a,b)=>a.d-b.d)[0].name:'woman');
+    }
+
+    const heroWindow=q('.hero-film-window');
+    if(heroWindow){
+      const heroEl=q('.hero');
+      const p=heroEl?visibleP(heroEl):0;
+      heroWindow.style.transform='translate3d('+mix(34,-18,p)+'px,'+mix(42,-18,p)+'px,0) rotate('+mix(5,-2,p)+'deg) scale('+mix(.94,1.03,p)+')';
+      heroWindow.style.opacity=String(mix(.58,1,clamp(p*1.7)));
+    }
+
+    qa('.material-bridge').forEach((bridge,i)=>{
+      const p=visibleP(bridge),core=q('.bridge-core',bridge),copy=q('.bridge-copy',bridge),thread=q('.precision-thread',bridge);
+      if(core)core.style.transform='translate3d('+mix(i%2?-8:8,i%2?6:-6,p)+'vw,'+mix(18,-18,p)+'px,0) rotate('+mix(-6,8,p)+'deg) scale('+mix(1.02,1.14,p)+')';
+      if(copy)copy.style.transform='translate3d('+mix(i%2?-34:34,0,p)+'px,'+mix(18,-12,p)+'px,0) scale('+mix(.9,1.04,p)+')';
+      if(thread)thread.style.transform='translate3d('+mix(-12,9,p)+'vw,'+mix(18,-18,p)+'px,0) rotate('+mix(-7,1,p)+'deg)';
+    });
+
     const manifest=q('.manifest');
     if(manifest){
       const p=visibleP(manifest),a=q('.portrait-a',manifest),b=q('.portrait-b',manifest),copy=manifest.querySelector('.manifest-grid>div:first-child');
