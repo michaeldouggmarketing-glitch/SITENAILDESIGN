@@ -6,6 +6,8 @@ const A={
  brows:ASSET+'/assets/portal-sobrancelhas-BuZcoaty.jpg',b1:ASSET+'/assets/sobrancelhas-1-Beq9oMk4.jpg',b2:ASSET+'/assets/sobrancelhas-2-SxVcyiSm.jpg',b3:ASSET+'/assets/sobrancelhas-3-D6BRe2ZH.jpg',b4:ASSET+'/assets/sobrancelhas-4-BNWTVAgv.jpg',lacquer:ASSET+'/assets/lacquer-DEZgZfRO.jpg'
 };
 const WA='https://wa.me/5511999998888';
+const CINEMA_NAIL="https://dnznrvs05pmza.cloudfront.net/gemini/gemini-3-pro-image/images/d89d2077-978b-4661-88b9-2e4eb783698f/a488eb92-c9dc-4348-8b45-d64953763b16/Ultra_realistic_cinematic_macro_beauty_photograph_for_a_luxu.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiMWY5MjE3MTc5YTBhMzc1ZiIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5MDA3MTA2M30.ad1uIcfqPHyJ6hPKXboAA7jnyqMkkf8cSbNrM3KSwRc";
+const CINEMA_TUNNEL="https://dnznrvs05pmza.cloudfront.net/gemini/gemini-3-pro-image/images/126bec4b-7c84-44f4-bdaf-f4342a8eb7fd/f35bbf13-7ac3-445a-a631-9ec4cb2aa8ed/Ultra_realistic_abstract_cinematic_transition_frame_for_a_lu.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiZjQ5ZTVmYjQyZGI5YmZmMSIsImJ1Y2tldCI6InJ1bndheS10YXNrLWFydGlmYWN0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5MDA1NTA5Mn0.Le8a3yTZhcL3u9QRkLLBTqneaYzsaHzTbJNDgcYN5b0";
 const app=document.querySelector('#app');
 function horizontalRail(items,label='Trabalhos selecionados'){
   return `<section class="rail-section grain">
@@ -47,6 +49,65 @@ const routes={
  '/sobre':{ey:'Sobre a profissional',title:'BELEZA COM INTENÇÃO. DETALHE COM ASSINATURA.',support:'Cada atendimento começa com observação e escuta. Referências, rotina e preferências orientam um trabalho que une técnica, sensibilidade e acabamento.',img:A.artist,head:'A BELEZA MAIS FORTE É A QUE AINDA PARECE SUA.',text:'A proposta do atelier não é criar um personagem. É usar detalhe, proporção, cor e acabamento para revelar presença.',services:[['Escuta antes da técnica','A conversa vem antes do gesto.'],['Personalização real','Forma e desenho definidos para você.'],['Acabamento como assinatura','O detalhe final separa serviço de experiência.'],['Experiência confortável','Ambiente, ritmo e clareza fazem parte do cuidado.']],gallery:[A.artist,A.space,A.h3,A.b3]},
  '/agendar':{ey:'Agendar / contato',title:'MONTE SEU RITUAL. NÓS CUIDAMOS DO RESTO.',support:'Escolha um ou mais universos, selecione o que faz sentido e leve tudo organizado para uma conversa no WhatsApp.',img:A.hero,head:'TRÊS PASSOS. ZERO FRICÇÃO.',text:'Escolha seus serviços, revise a combinação e consulte os horários pelo WhatsApp.',services:[['1. Escolha','Selecione Mãos & Gel, Pés e/ou Sobrancelhas.'],['2. Revise','A combinação aparece organizada antes do envio.'],['3. Consulte','O WhatsApp abre com a mensagem pronta.'],['4. Confirme','A profissional confirma disponibilidade e próximos passos.']],gallery:[A.h1,A.feet,A.b2,A.artist]}
 };
+function cinematicProof(){
+  return `<div class="proof-page">
+    <section class="reflection-hero grain">
+      <div class="reflection-stage">
+        <img class="reflection-nail" src="${CINEMA_NAIL}" alt="Macro cinematográfico de unha borgonha com reflexo">
+        <div class="reflection-vignette"></div>
+        <div class="reflection-copy shell">
+          <div class="eyebrow">CVD CINEMATIC WEB • CONCEITO 01</div>
+          <h1 class="display"><span>ENTRE</span><span>NO REFLEXO.</span></h1>
+          <p>A câmera não troca de seção. Ela entra na matéria.</p>
+          <span class="reflection-instruction">Deslize para atravessar a laca ↓</span>
+        </div>
+        <div class="reflection-ring" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="reflection-portal" aria-hidden="true">
+          <img src="${CINEMA_TUNNEL}" alt="">
+          <div class="portal-light"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="inside-lacquer grain">
+      <div class="inside-bg"><img src="${CINEMA_TUNNEL}" alt=""></div>
+      <div class="inside-shade"></div>
+      <div class="shell inside-copy">
+        <div class="eyebrow">LACA • TRANSIÇÃO VIVA</div>
+        <h2 class="display">VOCÊ NÃO<br>CHEGOU EM<br>OUTRA SEÇÃO.</h2>
+        <p>Você atravessou a primeira.</p>
+      </div>
+      <div class="liquid-trails" aria-hidden="true"><i></i><i></i><i></i></div>
+    </section>
+
+    <section class="emerge-scene grain">
+      <div class="emerge-media"><video src="${A.video}" poster="${A.hands}" muted autoplay loop playsinline></video></div>
+      <div class="emerge-mask"></div>
+      <div class="shell emerge-copy">
+        <span class="eyebrow">MÃOS & GEL • A MATÉRIA VIRA GESTO</span>
+        <h2 class="display">A LACA<br>VOLTA AO<br>MUNDO REAL.</h2>
+        <p>O filme entrega o último frame para a interface. Daqui, o site assume sem corte seco.</p>
+      </div>
+      <div class="emerge-line" aria-hidden="true"></div>
+    </section>
+
+    <section class="proof-rail-wrap">
+      ${horizontalRail([[A.h1,'Mãos & Gel','Borgonha espelhado'],[A.h4,'Mãos & Gel','Detalhe de acabamento'],[A.b1,'Precisão','O próximo universo'],[A.f2,'Pérola','A matéria clareia']],'A história continua para o lado')}
+    </section>
+
+    <section class="proof-next grain">
+      <div class="proof-next-media"><img src="${A.feet}" alt="Cena de cuidado para os pés"></div>
+      <div class="proof-next-shade"></div>
+      <div class="shell proof-next-copy">
+        <span class="eyebrow">PRÓXIMA MATÉRIA • PÉROLA</span>
+        <h2 class="display">A LACA<br>COMEÇA A<br>VIRAR LUZ.</h2>
+        <p>Esse é o ponto em que o filme seguinte entraria: borgonha líquido → reflexo perolado → água → cuidado dos pés.</p>
+        <a class="btn primary" href="/">Voltar para o site</a>
+      </div>
+    </section>
+  </div>`;
+}
+
 function routePage(d){
   const routeWorks=d.gallery.map((img,i)=>[img,d.ey,['Detalhe 01','Detalhe 02','Detalhe 03','Detalhe 04','Detalhe 05','Detalhe 06','Detalhe 07','Detalhe 08'][i]||('Detalhe '+(i+1))]);
   return `<div class="route-page route-cinematic">
@@ -81,7 +142,7 @@ function routePage(d){
     ${footer()}
   </div>`;
 }
-function render(){const p=location.pathname.replace(/\/$/,'')||'/';app.innerHTML=p==='/'?home():routePage(routes[p]||routes['/experiencias']);window.scrollTo(0,0);initMotion();initRitual();initRails();}
+function render(){const p=location.pathname.replace(/\/$/,'')||'/';document.body.classList.toggle('proof-mode',p==='/cinematic-proof');app.innerHTML=p==='/cinematic-proof'?cinematicProof():(p==='/'?home():routePage(routes[p]||routes['/experiencias']));window.scrollTo(0,0);initMotion();initRitual();initRails();}
 function initRails(){
   document.querySelectorAll('.rail-section').forEach(section=>{
     const rail=section.querySelector('.rail');
