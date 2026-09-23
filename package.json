@@ -3,6 +3,6 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "build": "rm -rf dist && mkdir -p dist && cp index.html styles.css content.js motion.js dist/"
+    "build": "rm -rf dist && mkdir -p dist && cp index.html styles.css content.js motion.js dist/ && for page in experiencias maos-e-gel pes sobrancelhas portfolio sobre agendar; do cp index.html \"dist/$page.html\"; done"
   }
 }
