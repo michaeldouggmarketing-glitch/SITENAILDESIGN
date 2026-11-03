@@ -13,8 +13,8 @@ Data: 03/11/2026. Ambiente: Node.js, build local, Chromium/Playwright com HTML e
 | G07 Mobile | PARCIAL | Homepage 390px sem overflow; 320/360 e demais rotas pendentes |
 | G08 Mídia | PENDENTE | Ilustrações locais estáveis; mídias reais precisam entrar |
 | G09 Acessibilidade | PARCIAL | Sem textos ocultos em falha de JS; CSS reduced-motion presente; QA de teclado completo pendente |
-| G10 GitHub | PENDENTE | Commit em nova branch após validação/transferência |
-| G11 Vercel | PENDENTE | Deploy preview ainda não realizado |
+| G10 GitHub | PASSOU | Branch cvd-rebuild-levie-v1 commit ef0a6e5 |
+| G11 Vercel | PARCIAL | Deploy dpl_HCYqcmh2raxrMV8e7wrzRDyiyZw3 READY; navegação pública não verificada devido à proteção de prévia |
 | G12 Limites | PARCIAL | Sem segredos, não há plugins pagos, telefone fictício removido |
 
 ### Testes reais concluídos
@@ -27,3 +27,8 @@ Data: 03/11/2026. Ambiente: Node.js, build local, Chromium/Playwright com HTML e
 
 ### Observação de teste
 O navegador automatizado não autorizou navegação HTTP para localhost ou file://; foi usado HTML/CSS/script local injetado no Chromium. Isso permite conferência da renderização, mas **não equivale a teste E2E em URL hospedada**.
+### Publicação independente
+- Project: `espaco-levie-cvd-preview` na equipe michaeldougmarketing-9430s-projects.
+- Deployment READY: `https://espaco-levie-cvd-preview-f2tl4dd2n.vercel.app/`.
+- Fonte: branch GitHub protegida; deploy realizado por arquivos idênticos ao commit, porque a conta Vercel principal ainda não possui Login Connection GitHub. Deploy automático pendente.
+- A publicação anterior Maíra Beauty Atelier não foi alterada.
