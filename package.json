@@ -1,8 +1,6 @@
 {
-  "name": "maira-beauty-atelier-cinematic",
-  "private": true,
-  "version": "1.0.0",
-  "scripts": {
-    "build": "rm -rf dist && mkdir -p dist && cp index.html styles.css content.js motion.js dist/ && for page in experiencias maos-e-gel pes sobrancelhas portfolio sobre agendar; do cp index.html \"dist/$page.html\"; done"
+  "name": "espaco-levie-cinematic", "version": "1.0.0", "private": true,
+  "type": "module", "scripts": {
+    "dev": "node scripts/dev.mjs", "build": "node scripts/build.mjs", "check": "node scripts/check.mjs"
   }
 }

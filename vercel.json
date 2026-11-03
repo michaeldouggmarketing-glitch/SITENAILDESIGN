@@ -1,18 +1,1 @@
-{
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "cleanUrls": true,
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ],
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
-      ]
-    }
-  ]
-}
+{"buildCommand":"npm run build","outputDirectory":"dist","cleanUrls":true,"trailingSlash":false,"rewrites":[{"source":"/experiencias","destination":"/experiencias/index.html"},{"source":"/maos-e-gel","destination":"/maos-e-gel/index.html"},{"source":"/pes","destination":"/pes/index.html"},{"source":"/sobrancelhas","destination":"/sobrancelhas/index.html"},{"source":"/portfolio","destination":"/portfolio/index.html"},{"source":"/sobre","destination":"/sobre/index.html"},{"source":"/agendar","destination":"/agendar/index.html"}]}

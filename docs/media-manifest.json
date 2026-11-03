@@ -1,0 +1,8 @@
+{
+  "company": "Espaço Levie", "reviewed_at": "2026-11-03", "real_client_photographs": [],
+  "editorial_graphics": [
+    {"id":"hero-lacquer-css","path":"styles.css","type":"CSS illustration","rights":"original project composition","real_client_result":false,"section":"hero"},
+    {"id":"pearl-and-form-css","path":"styles.css","type":"CSS illustration","rights":"original project composition","real_client_result":false,"section":"experiences and portfolio"}
+  ],
+  "missing_required": ["Instagram official handle","client work gallery photos with permissions","space and professional portrait with permissions","official WhatsApp and address"]
+}
