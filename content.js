@@ -18,7 +18,7 @@ const A={
   "b4": "https://images.pexels.com/photos/8558244/pexels-photo-8558244.jpeg?auto=compress&cs=tinysrgb&w=1200&q=82",
   "lacquer": "https://images.pexels.com/photos/3738369/pexels-photo-3738369.jpeg?auto=compress&cs=tinysrgb&w=1200&q=82"
 };
-const WA='https://wa.me/5511999998888';
+const WA='#contato-oficial-pendente';
 const app=document.querySelector('#app');
 const home=()=>`<section class="hero grain" data-scene="0">
 <div class="hero-pin">
