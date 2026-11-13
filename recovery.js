@@ -37,6 +37,28 @@
      signatureObserver.observe(el);
    });
  }
+
+ // Never send demo visitors to an invented phone number.
+ let contactTimer;
+ document.addEventListener('click',event=>{
+   const anchor=event.target.closest('a[href*="#contato-oficial-pendente"]');
+   if(!anchor)return;
+   event.preventDefault();
+   event.stopPropagation();
+   let notice=document.getElementById('maira-contact-notice');
+   if(!notice){
+     notice=document.createElement('div');
+     notice.id='maira-contact-notice';
+     notice.setAttribute('role','status');
+     notice.setAttribute('aria-live','polite');
+     document.body.appendChild(notice);
+   }
+   notice.textContent='Esta é uma prévia do atelier. O agendamento será conectado ao WhatsApp oficial após a confirmação do contato.';
+   notice.classList.add('show');
+   clearTimeout(contactTimer);
+   contactTimer=setTimeout(()=>notice.classList.remove('show'),6500);
+ },true);
+
  initSignatures();
  if(app&&'MutationObserver' in window)new MutationObserver(initSignatures).observe(app,{childList:true,subtree:false});
  window.addEventListener('pageshow',initSignatures);
