@@ -152,3 +152,8 @@ img[loading="lazy"]{background-color:rgba(110,45,62,.06)}
  .cvd-signature.is-written .cvd-signature-reveal,.cvd-signature.is-written .cvd-signature-underline{animation:none!important}
  .cinema-beat,.hero-line>span,.hero-sub,.hero-actions{opacity:1!important;filter:none!important;transform:none!important}
 }
+
+/* Discreet notice for contact channels awaiting business verification. */
+#maira-contact-notice{position:fixed;z-index:400;bottom:24px;left:50%;transform:translate(-50%,28px);max-width:min(540px,calc(100vw - 30px));width:max-content;padding:17px 23px;border-radius:16px;border:1px solid rgba(230,188,129,.48);background:rgba(23,8,15,.96);color:#f9ecdf;font:500 .8rem/1.6 Manrope,system-ui,sans-serif;text-align:center;box-shadow:0 24px 60px rgba(0,0,0,.48);opacity:0;pointer-events:none;transition:opacity .3s ease,transform .3s ease}
+#maira-contact-notice.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:600px){#maira-contact-notice{width:calc(100vw - 28px);font-size:.74rem;padding:14px 16px}}
